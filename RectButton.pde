@@ -1,8 +1,12 @@
-  private static RectButton prev;
+static RectButton prev=null;
+  
 private class RectButton {
 
   private int xSize, ySize, xPos, yPos,id, sid;
   private String text;
+  private boolean pairFound;
+  
+   
 
   RectButton(String text, int id, int sid, int xPos, int yPos, int xSize, int ySize) {
     this.text = text;
@@ -12,6 +16,7 @@ private class RectButton {
     this.yPos = yPos;
     this.xSize = xSize;
     this.ySize = ySize;
+    this.pairFound = false;
   }
 
   public void display() {
@@ -24,14 +29,19 @@ private class RectButton {
     boolean[] b = new boolean [2];
     b [0] = isOver() && mousePressed;
     b [1] = isSolution ();
-    prev=this;
+//    if(b[0]){
+//      System.out.println("PREV PREV:- " + prev);
+//      prev=this;
+//      System.out.println("NEW PREV:- " + prev);
+  //  }
     return(b);
   }
   
   private boolean isSolution(){
     if (prev == null) return false;
-    return (prev.getsid () == this.id);
+    return (prev.getsid() == this.id);
   }
+ 
 
   private boolean isOver() {
     return (mouseX > xPos-xSize/2 && mouseX < xPos+xSize/2 && 
@@ -61,6 +71,28 @@ private class RectButton {
   
   public RectButton getprev(){
     return prev;
+  }
+  
+  public boolean wasClicked(){
+    boolean sol = false;
+    sol = isSolution();
+    if(sol){
+      prev.pairFound=true;
+      this.pairFound=true;
+    }    
+    System.out.println("PREV PREV:- " + prev);
+    prev=this;
+    System.out.println("NEW PREV:- " + prev);
+    return sol;
+  }    
+  
+  public boolean getPairFound(){
+    return this.pairFound;
+  }
+
+
+  public String toString(){
+    return("BUTTON:- " + id);
   }
   
 }
