@@ -1,4 +1,4 @@
-  private static RectButton prev = null;
+  private static RectButton prev;
 private class RectButton {
 
   private int xSize, ySize, xPos, yPos,id, sid;
@@ -29,6 +29,7 @@ private class RectButton {
   }
   
   private boolean isSolution(){
+    if (prev == null) return false;
     return (prev.getsid () == this.id);
   }
 
