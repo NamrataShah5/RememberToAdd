@@ -46,9 +46,7 @@ void draw() {
       if (bool[0]) { //isPressed 
         //show card
         card.showtext();
-//        fill(0, 0, 0, 225);
       }
-   //   fill(200);
     }
   }
 }

@@ -29,11 +29,6 @@ private class RectButton {
     boolean[] b = new boolean [2];
     b [0] = isOver() && mousePressed;
     b [1] = isSolution ();
-//    if(b[0]){
-//      System.out.println("PREV PREV:- " + prev);
-//      prev=this;
-//      System.out.println("NEW PREV:- " + prev);
-  //  }
     return(b);
   }
   
@@ -58,12 +53,7 @@ private class RectButton {
     text(text, xPos-(textWidth(text)/2), yPos);
   }
   
-  public void hidetext(){
-    fill(197,240,177);
-//    textSize(20);
-      //text(this.text, xPos-(textWidth(text)/2), yPos);
-      
-  }
+
   
   public int getsid () {
     return sid;
@@ -80,9 +70,7 @@ private class RectButton {
       prev.pairFound=true;
       this.pairFound=true;
     }    
-    System.out.println("PREV PREV:- " + prev);
     prev=this;
-    System.out.println("NEW PREV:- " + prev);
     return sol;
   }    
   
